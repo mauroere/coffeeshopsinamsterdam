@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib
 import json
 
-r = urllib.urlopen('http://www.coffeeshop.freeuk.com/Map.html').read()
+r = urllib.urlopen('https://www.coffeeshopdirect.com/Map.html').read()
 soup = BeautifulSoup(r, 'html.parser')
 
 
@@ -12,7 +12,7 @@ for link in soup.find_all('area'):
 	coffeeshop = {}
 
 	# Link for coffeshop
-	coffeeshop['full_link'] = 'http://www.coffeeshop.freeuk.com/' + link.get('href')
+	coffeeshop['full_link'] = 'https://www.coffeeshopdirect.com/' + link.get('href')
 	
 	# Http to link
 	coffeeshop_site = urllib.urlopen(coffeeshop['full_link']).read()
